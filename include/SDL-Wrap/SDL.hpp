@@ -1,6 +1,11 @@
 #ifndef SDL_WRAP_SDL_H
 #define SDL_WRAP_SDL_H
 
+#include <SDL-Wrap/Color.hpp>
+#include <SDL-Wrap/Event.hpp>
+#include <SDL-Wrap/Render.hpp>
+#include <SDL-Wrap/Window.hpp>
+
 #include <SDL3/SDL.h>
 
 namespace SDLW {

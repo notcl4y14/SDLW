@@ -1,7 +1,4 @@
-#include <SDL-Wrap/Color.hpp>
-#include <SDL-Wrap/Event.hpp>
 #include <SDL-Wrap/SDL.hpp>
-#include <SDL-Wrap/Window.hpp>
 
 #include <SDL3/SDL.h>
 

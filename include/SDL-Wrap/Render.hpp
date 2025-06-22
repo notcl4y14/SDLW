@@ -12,7 +12,7 @@ namespace SDLW {
 	class Render {
 	private:
 		Window* window;
-		SDL_Renderer* render_handle;
+		SDL_Renderer* sdlRender;
 	
 	public:
 		Render ();

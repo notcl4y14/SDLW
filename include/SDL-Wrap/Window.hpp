@@ -10,7 +10,7 @@ namespace SDLW {
 	class Window {
 		friend Render;
 	private:
-		SDL_Window* window_handle;
+		SDL_Window* sdlWindow;
 	
 	public:
 		Window ();

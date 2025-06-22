@@ -6,7 +6,6 @@
 namespace SDLW {
 
 	void Init (SDL_InitFlags flags) {
-		// TODO: Make this choosable
 		SDL_Init(flags);
 	}
 
