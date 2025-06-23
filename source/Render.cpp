@@ -27,6 +27,10 @@ namespace SDLW {
 		SDL_RenderPresent(this->sdlRender);
 	}
 
+	void Render::SetDrawBlendMode (BlendMode mode) {
+		SDL_SetRenderDrawBlendMode(this->sdlRender, mode);
+	}
+
 	void Render::DrawRect (float x, float y, float w, float h) {
 		const SDL_FRect frect = { x, y, w, h };
 		SDL_RenderRect(this->sdlRender, &frect);
@@ -49,6 +53,33 @@ namespace SDLW {
 
 	void Render::DrawLine (float x1, float y1, float x2, float y2) {
 		SDL_RenderLine(this->sdlRender, x1, y1, x2, y2);
+	}
+
+	void Render::DrawTexture (Texture* texture, const FRect* srcrect, const FRect* dstrect) {
+		SDL_RenderTexture(this->sdlRender, texture->sdlTexture, srcrect, dstrect);
+	}
+
+	void Render::DrawTexture (Texture* texture, const FRect* dstrect) {
+		const FRect srcrect = {
+			0, 0,
+			(float) texture->sdlTexture->w,
+			(float) texture->sdlTexture->h,
+		};
+		SDL_RenderTexture(this->sdlRender, texture->sdlTexture, &srcrect, dstrect);
+	}
+
+	void Render::DrawTexture (Texture* texture, float x, float y) {
+		const FRect srcrect = {
+			0, 0,
+			(float) texture->sdlTexture->w,
+			(float) texture->sdlTexture->h,
+		};
+		const FRect dstrect = {
+			x, y,
+			srcrect.w,
+			srcrect.h,
+		};
+		SDL_RenderTexture(this->sdlRender, texture->sdlTexture, &srcrect, &dstrect);
 	}
 
 }

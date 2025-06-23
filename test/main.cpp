@@ -39,6 +39,20 @@ int main () {
 	player_x = (800 / 2) - (25 / 2);
 	player_y = (600 / 2) - (25 / 2);
 
+	char pixels[8 * 8 * 4];
+
+	for (int i = 0; i < 64; i++) {
+		pixels[i * 4] = 255;
+		pixels[i * 4 + 1] = (float) i / 64 * 255;
+		pixels[i * 4 + 2] = (float) i / 32 * 255;
+		pixels[i * 4 + 3] = (float) i / 16 * 255;
+	}
+
+	SDLW::Surface surface = SDLW::Surface(8, 8, SDL_PIXELFORMAT_RGBA8888, pixels, 8 * 4);
+	SDLW::Texture texture = SDLW::Texture(&render, &surface);
+	texture.SetBlendMode(SDL_BLENDMODE_BLEND);
+	texture.SetScaleMode(SDL_SCALEMODE_NEAREST);
+
 	Crosshair crosshair;
 
 	while (is_running) {
@@ -93,6 +107,9 @@ int main () {
 
 		render.SetDrawColor(SDLW::Color(255, 255, 255, 255));
 		render.FillRect(player_x, player_y, 25, 25);
+
+		SDLW::FRect dstrect = { 10, 10, 50, 50 };
+		render.DrawTexture(&texture, &dstrect);
 
 		crosshair.Render(&render);
 
