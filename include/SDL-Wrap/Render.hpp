@@ -22,6 +22,8 @@ namespace SDLW {
 		Render (Window* window);
 		~Render ();
 
+		void Create (Window* window);
+
 		void SetDrawColor (Color color);
 
 		void Clear ();

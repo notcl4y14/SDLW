@@ -20,6 +20,9 @@ namespace SDLW {
 		Surface (int w, int h, PixelFormat format, void* pixels, int pitch);
 		~Surface ();
 
+		void Create (int w, int h, PixelFormat format);
+		void Create (int w, int h, PixelFormat format, void* pixels, int pitch);
+
 		void Blit (const Rect* srcrect, Surface* surface, const Rect* dstrect);
 		void Blit (Surface* surface, const Rect* dstrect);
 		void Blit (Surface* surface, int x, int y);

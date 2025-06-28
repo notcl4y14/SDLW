@@ -4,6 +4,11 @@
 
 namespace SDLW {
 
+	Render::Render () {
+		this->window = NULL;
+		this->sdlRender = NULL;
+	}
+
 	Render::Render (Window* window) {
 		this->window = window;
 		this->sdlRender = SDL_CreateRenderer(this->window->sdlWindow, NULL);
@@ -11,6 +16,11 @@ namespace SDLW {
 
 	Render::~Render () {
 		SDL_DestroyRenderer(this->sdlRender);
+	}
+
+	void Render::Create (Window* window) {
+		this->window = window;
+		this->sdlRender = SDL_CreateRenderer(this->window->sdlWindow, NULL);
 	}
 
 	void Render::SetDrawColor (Color color) {

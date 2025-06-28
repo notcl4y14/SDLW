@@ -21,10 +21,15 @@ class Crosshair {
 	}
 };
 
+SDLW::Window window;
+SDLW::Render render;
+
 int main () {
 	SDLW::Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS);
-	SDLW::Window window = SDLW::Window("SDL-Wrap game", 800, 600);
-	SDLW::Render render = SDLW::Render(&window);
+	// SDLW::Window window = SDLW::Window("SDL-Wrap game", 800, 600);
+	// SDLW::Render render = SDLW::Render(&window);
+	window.Create("SDL-Wrap game", 800, 600);
+	render.Create(&window);
 
 	bool is_running = true;
 	bool input_move_up = false;

@@ -24,6 +24,12 @@ namespace SDLW {
 		Texture (Render* render, Surface* surface);
 		~Texture ();
 
+		void Create (Render* render,
+		             PixelFormat format,
+		             TextureAccess access,
+		             int w, int h);
+		void Create (Render* render, Surface* surface);
+
 		void SetBlendMode (BlendMode mode);
 		void SetScaleMode (ScaleMode mode);
 	};

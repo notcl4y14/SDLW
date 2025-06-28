@@ -20,6 +20,10 @@ namespace SDLW {
 		Window (const unsigned int width,
 		        const unsigned int height);
 		~Window ();
+
+		void Create (const char* title,
+		             const unsigned int width,
+		             const unsigned int height);
 	};
 
 }

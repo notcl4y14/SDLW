@@ -2,6 +2,10 @@
 
 namespace SDLW {
 
+	Window::Window () {
+		this->sdlWindow = NULL;
+	}
+
 	Window::Window (const char* title,
 	                const unsigned int width,
 	                const unsigned int height) {
@@ -17,6 +21,13 @@ namespace SDLW {
 
 	Window::~Window () {
 		SDL_DestroyWindow(this->sdlWindow);
+	}
+
+	void Window::Create (const char* title,
+					     const unsigned int width,
+					     const unsigned int height) {
+		this->sdlWindow =
+			SDL_CreateWindow(title, width, height, SDL_WINDOW_RESIZABLE);
 	}
 
 }

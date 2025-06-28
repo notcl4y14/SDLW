@@ -18,6 +18,14 @@ namespace SDLW {
 		SDL_DestroySurface(this->sdlSurface);
 	}
 
+	void Surface::Create (int w, int h, PixelFormat format) {
+		this->sdlSurface = SDL_CreateSurface(w, h, format);
+	}
+
+	void Surface::Create (int w, int h, PixelFormat format, void* pixels, int pitch) {
+		this->sdlSurface = SDL_CreateSurfaceFrom(w, h, format, pixels, pitch);
+	}
+
 	void Surface::Blit (const Rect* srcrect, Surface* surface, const Rect* dstrect) {
 		SDL_BlitSurface(this->sdlSurface, srcrect, surface->sdlSurface, dstrect);
 	}
