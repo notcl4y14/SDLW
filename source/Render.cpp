@@ -41,6 +41,14 @@ namespace SDLW {
 		SDL_SetRenderDrawBlendMode(this->sdlRender, mode);
 	}
 
+	void Render::SetScale (float x, float y) {
+		SDL_SetRenderScale(this->sdlRender, x, y);
+	}
+
+	void Render::GetScale (float* x, float* y) {
+		SDL_GetRenderScale(this->sdlRender, x, y);
+	}
+
 	void Render::DrawRect (float x, float y, float w, float h) {
 		const SDL_FRect frect = { x, y, w, h };
 		SDL_RenderRect(this->sdlRender, &frect);

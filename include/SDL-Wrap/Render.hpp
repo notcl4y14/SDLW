@@ -31,6 +31,9 @@ namespace SDLW {
 
 		void SetDrawBlendMode (BlendMode mode);
 
+		void SetScale (float x, float y);
+		void GetScale (float* x, float* y);
+
 		void DrawRect (float x, float y, float w, float h);
 		void FillRect (float x, float y, float w, float h);
 		void DrawRectFixed (float x1, float y1, float x2, float y2);

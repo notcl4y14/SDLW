@@ -36,6 +36,7 @@ int main () {
 	bool input_move_down = false;
 	bool input_move_left = false;
 	bool input_move_right = false;
+	bool input_mouse_down = false;
 	int mouse_x = 0;
 	int mouse_y = 0;
 	int player_x = 0;
@@ -94,6 +95,18 @@ int main () {
 				mouse_x = e.motion.x;
 				mouse_y = e.motion.y;
 				break;
+			
+			case SDL_EVENT_MOUSE_BUTTON_DOWN:
+				input_mouse_down = true;
+				window.SetRelativeMouseMode(true);
+				window.SetMouseRect(800 / 2, 600 / 2, 1, 1);
+				break;
+			
+			case SDL_EVENT_MOUSE_BUTTON_UP:
+				input_mouse_down = false;
+				window.SetRelativeMouseMode(false);
+				window.SetMouseRect(0, 0, 0, 0);
+				break;
 			}
 		}
 
@@ -103,6 +116,11 @@ int main () {
 		else if (input_move_down) player_y += 2;
 		     if (input_move_left) player_x -= 2;
 		else if (input_move_right) player_x += 2;
+
+		     if (player_x < -25) player_x = 800 + 25;
+		else if (player_x >= 800 + 25) player_x = -25;
+		     if (player_y < -25) player_y = 600 + 25;
+		else if (player_y >= 600 + 25) player_y = -25;
 
 		render.SetDrawColor(SDLW::Color(0, 128, 255, 255));
 		render.Clear();

@@ -29,5 +29,14 @@ namespace SDLW {
 		this->sdlWindow =
 			SDL_CreateWindow(title, width, height, SDL_WINDOW_RESIZABLE);
 	}
+		
+	bool Window::SetRelativeMouseMode (bool enabled) {
+		return SDL_SetWindowRelativeMouseMode(this->sdlWindow, enabled);
+	}
+
+	bool Window::SetMouseRect (int x, int y, int w, int h) {
+		const SDL_Rect rect = { x, y, w, h };
+		return SDL_SetWindowMouseRect(this->sdlWindow, &rect);
+	}
 
 }

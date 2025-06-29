@@ -24,6 +24,9 @@ namespace SDLW {
 		void Create (const char* title,
 		             const unsigned int width,
 		             const unsigned int height);
+		
+		bool SetRelativeMouseMode (bool enabled);
+		bool SetMouseRect (int x, int y, int w, int h);
 	};
 
 }
